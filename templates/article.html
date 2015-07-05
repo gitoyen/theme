@@ -10,6 +10,11 @@
       {% include 'twitter.html' %}
     </header>
 
+    {% if article.toc %}
+    <nav class="toc">
+      {{ article.toc }}
+    </nav>
+    {% endif %}
     <div class="entry-content">
       {% include 'article_infos.html' %}
       {{ article.content }}
