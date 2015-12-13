@@ -17,10 +17,9 @@
 /***** Global *****/
 /* Body */
 body {
-    background: #F5F4EF;
+    background: #FFF;
     color: #000305;
-    font-size: 87.5%; /* Base font size: 14px */
-    font-family: 'Trebuchet MS', Trebuchet, 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Lato', Trebuchet, 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     line-height: 1.429;
     margin: 0;
     padding: 0;
@@ -29,20 +28,18 @@ body {
 
 /* Headings */
 h1 {font-size: 2em }
-h2 {font-size: 1.571em}	/* 22px */
-h3 {font-size: 1.429em}	/* 20px */
+h2 {font-size: 2.5em; text-transform: uppercase;margin-top:60px;margin-bottom: .8em}	/* 22px */
+h2:first-child {margin-top:0;}	/* 22px */
+h3 {font-size: 1.8em; color: #999; margin-top: 40px}	/* 20px */
 h4 {font-size: 1.286em}	/* 18px */
 h5 {font-size: 1.143em}	/* 16px */
 h6 {font-size: 1em}		/* 14px */
 
 h1, h2, h3, h4, h5, h6 {
-	font-weight: 400;
+	font-weight: 300;
 	line-height: 1.1;
-	margin-bottom: .8em;
-    font-family: 'Yanone Kaffeesatz', arial, serif;
+    font-family: 'Oswald', arial, serif;
 }
-
-h3, h4, h5, h6 { margin-top: .8em; }
 	
 hr { border: 2px solid #EEEEEE; }
 
@@ -50,15 +47,13 @@ hr { border: 2px solid #EEEEEE; }
 a {outline: 0;}
 a img {border: 0px; text-decoration: none;}
 a:link, a:visited {
-	color: #C74350;
+	color: #e0470b	;
 	padding: 0 1px;
 	text-decoration: underline;
 }
 a:hover, a:active {
-	background-color: #C74350;
-	color: #fff;
+	color: #F00;
 	text-decoration: none;
-	text-shadow: 1px 1px 1px #333;
 }
 
 h1 a:hover {
@@ -76,6 +71,7 @@ em, i {font-style: italic;}
 /* Lists */
 ul {
 	list-style: outside disc;
+	list-style-image: url(../images/puce.png);
 	margin: 0em 0 0 1.5em;
 }
 
@@ -147,77 +143,124 @@ aside, nav, article, figure {
 }
 
 /***** Layout *****/
-.body {clear: both; margin: 0 auto; width: 800px;}
+/*.body {clear: both; margin: 0 auto; width: 800px;}*/
+.body {clear: both; margin: 0 auto; width: 100%;}
 img.right, figure.right {float: right; margin: 0 0 2em 2em;}
 img.left, figure.left {float: left; margin: 0 2em 2em 0;}
 
 /*
 	Header
 *****************/
+
 #banner {
-	margin: 0 auto;
-	padding: 2.5em 0 0 0;
+	border-bottom: 10px solid #e0470b;
+	background: #000;
 }
 
-	/* Banner */
-	#banner h1 {font-size: 3.571em; line-height: 0;}
-	#banner h1 a:link, #banner h1 a:visited {
-		color: #000305;
-		display: block;
-		font-weight: bold;
-		margin: 0 0 .6em .2em;
+	#headerContainer {
+		width: 60%;
+		margin: 0 auto 2em;
+		padding: 30px 0;
+		position: relative;
+		height: 50px;
+		font-size: 14px;
+	}
+
+		#banner #logo {
+			display: inline-block;
+			margin-right: 20px;
+			position: absolute;
+		}
+
+			#banner #logo img {
+				width: 230px;
+			}
+		
+		/* Main Nav */
+		#banner nav {
+			display: inline-block;
+			background: #000305;
+			font-size: 1.2em;
+			height: 40px;
+			line-height: 30px;
+			margin: 0 ;
+			padding: 0;
+			text-align: center;
+			width: 750px;
+			position: absolute;
+			right: 0;
+			top: 50%;
+		}
+		
+		#banner nav ul {list-style: none; margin: 0 auto; width: 840px;}
+		#banner nav li {float: left; display: inline; margin: 0 5px;}
+		
+		#banner nav a:link, #banner nav a:visited {
+			color: #fff;
+			display: inline-block;
+			height: 30px;
+			padding: 5px 1em;
+			font-family: Lato;
+			text-decoration: none;
+			text-transform: lowercase;
+			font-variant: small-caps;
+		}
+		
+		/* #banner nav a:active, */
+		#banner nav .active a:link, #banner nav .active a:visited {
+			border: 1px solid #FFF;
+			color: #fff;
+			text-shadow: none !important;
+		}
+
+		#banner nav li a.icon {
+			display: inline-block;
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: 18px 18px;
+		}
+
+		#banner nav li a#search {
+			background-image: url(../images/search.png);
+		}
+
+		#banner nav li a#twitter {
+			background-image: url(../images/twitter.png);
+		}
+
+		#banner nav li a#rss {
+			background-image: url(../images/rss.png);
+		}
+
+
+/*
+	Side navigation
+*****************/
+nav#side-nav {
+	display: inline-block;
+	width: 20%;
+	vertical-align: top;
+	text-align: right;
+	padding-right: 80px;
+}
+
+	nav#side-nav ul {
+		list-style: none;
+	}
+
+	nav#side-nav li a {
+		font-size: 16px;
+		color: #999;
 		text-decoration: none;
 	}
-	#banner h1 a:hover, #banner h1 a:active {
-		background: none;
-		color: #C74350;
-		text-shadow: none;
-	}
-	
-	#banner h1 strong {font-size: 0.36em; font-weight: normal;}
-	
-	/* Main Nav */
-	#banner nav {
-		background: #000305;
-		font-size: 1.143em;
-		height: 40px;
-		line-height: 30px;
-		margin: 0 auto 2em auto;
-		padding: 0;
-		text-align: center;
-		width: 800px;
-		
-		border-radius: 5px;
-		-moz-border-radius: 5px;
-		-webkit-border-radius: 5px;
-	}
-	
-	#banner nav ul {list-style: none; margin: 0 auto; width: 800px;}
-	#banner nav li {float: left; display: inline; margin: 0;}
-	
-	#banner nav a:link, #banner nav a:visited {
-		color: #fff;
-		display: inline-block;
-		height: 30px;
-		padding: 5px 1.5em;
-		text-decoration: none;
-	}
-	#banner nav a:hover, #banner nav a:active,
-	#banner nav .active a:link, #banner nav .active a:visited {
-		background: #C74451;
-		color: #fff;
-		text-shadow: none !important;
-	}
-	
-	#banner nav li:first-child a {
-		border-top-left-radius: 5px;
-		-moz-border-radius-topleft: 5px;
-		-webkit-border-top-left-radius: 5px;
-		
-		border-bottom-left-radius: 5px;
-		-moz-border-radius-bottomleft: 5px;
-		-webkit-border-bottom-left-radius: 5px;
-	}
+
+/*
+	Side content
+*****************/
+div#side-content {
+	display: inline-block;
+	width: 60%;
+}
 
 /*
 	Featured
@@ -256,11 +299,16 @@ img.left, figure.left {float: left; margin: 0 2em 2em 0;}
 	margin-bottom: 2em;
 	overflow: hidden;
 	padding: 20px 20px;
-	width: 760px;
+	width: 60%;
 	
 	border-radius: 10px;
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
+}
+
+#content p, #content li, #content a {
+	font-size: 20px;
+	font-weight: 300;
 }
 
 /*
@@ -376,7 +424,16 @@ img.left, figure.left {float: left; margin: 0 2em 2em 0;}
 li:last-child .hentry, #content > .hentry {border: 0; margin: 0;}
 #content > .hentry {padding: 1em 0;}
 .hentry img{display : none ;}
-.entry-title {font-size: 3em; margin-bottom: 10px; margin-top: 0;}
+
+.entry-title {
+	font-size: 3.5em; 
+	font-family: Lato;
+	font-weight: 300;
+	margin-bottom: 60px; 
+	margin-top: 30px;
+	text-align: center;
+}
+
 .entry-title a:link, .entry-title a:visited {text-decoration: none; color: #333;}
 .entry-title a:visited {background-color: #fff;}
 
