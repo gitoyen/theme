@@ -11,7 +11,7 @@ $(document).ready(function() {
 	$('#side-nav ul li a').on("click",function(e){
 		e.preventDefault();
 		var target = ($(this).attr('href')).substr(1);
-		$('body').animate({
+		$('body,html').animate({
           scrollTop: $("#"+target).offset().top
         }, 1000,'swing', function(){
         	window.location.hash = "#"+target;
